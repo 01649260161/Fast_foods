@@ -46,6 +46,38 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'user'=>[
+            'driver'=>'session',
+            'provider'=>'users',
+        ],
+        'user-api'=>[
+            'driver'=>'token',
+            'provider'=>'users'
+        ],
+        'admin'=>[
+            'driver'=>'session',
+            'provider'=>'admins',
+        ],
+        'admin-api'=>[
+            'driver'=>'token',
+            'provider'=>'admins'
+        ],
+        'seller'=>[
+            'driver'=>'session',
+            'provider'=>'sellers',
+        ],
+        'seller-api'=>[
+            'driver'=>'token',
+            'provider'=>'sellers'
+        ],
+        'shipper'=>[
+            'driver'=>'session',
+            'provider'=>'shippers',
+        ],
+        'shipper-api'=>[
+            'driver'=>'token',
+            'provider'=>'shippers'
+        ],
     ],
 
     /*
@@ -70,7 +102,18 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
+        'admins'=>[
+            'driver' => 'eloquent',
+            'model'=>App\Model\AdminModel::class,
+        ],
+        'sellers'=>[
+            'driver' => 'eloquent',
+            'model'=>App\Model\SellerModel::class,
+        ],
+        'shippers'=>[
+            'driver' => 'eloquent',
+            'model'=>App\Model\ShipperModel::class,
+        ]
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -97,21 +140,22 @@ return [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
-            'throttle' => 60,
+        ],
+        'admins'=>[
+            'provider'=>'admins',
+            'table'=>'password_resets',
+            'expire'=>15,
+        ],
+        'sellers'=>[
+            'provider'=>'sellers',
+            'table'=>'password_resets',
+            'expire'=>15,
+        ],
+        'shippers'=>[
+            'provider'=>'shippers',
+            'table'=>'password_resets',
+            'expire'=>15,
         ],
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Password Confirmation Timeout
-    |--------------------------------------------------------------------------
-    |
-    | Here you may define the amount of seconds before a password confirmation
-    | times out and the user is prompted to re-enter their password via the
-    | confirmation screen. By default, the timeout lasts for three hours.
-    |
-    */
-
-    'password_timeout' => 10800,
 
 ];
