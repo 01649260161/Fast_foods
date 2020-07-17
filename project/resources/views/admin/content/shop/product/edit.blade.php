@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tên sản phẩm</label>
                     <div class="col-sm-8">
-                        <input type="text" name="name" class="form-control1" id="focusedinput" value="{{ $product->name }}" placeholder="Default Input">
+                        <input type="text" name="name" class="form-control" id="focusedinput" value="{{ $product->name }}" placeholder="Default Input">
                     </div>
                 </div>
                 <div class="form-group">
@@ -39,9 +39,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Slug</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">Đường dẫn tĩnh</label>
                     <div class="col-sm-8">
-                        <input type="text" name="slug" class="form-control1" id="focusedinput" value="{{ $product->slug }}" placeholder="Default Input">
+                        <input type="text" name="slug" class="form-control" id="focusedinput" value="{{ $product->slug }}" placeholder="Default Input">
                     </div>
                 </div>
 
@@ -50,26 +50,26 @@
                 $images =  $product->images ?json_decode($product->images):array();
                 ?>
                 @if(!empty($images))
-                @foreach($images as $key =>$image)
+                    @foreach($images as $key =>$image)
 
 
-                    <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Images</label>
-                        <div class="col-sm-8">
+                        <div class="form-group">
+                            <label for="focusedinput" class="col-sm-2 control-label">Ảnh</label>
+                            <div class="col-sm-8">
                         <span class="input-group-btn">
                              <a id="lfm{{$key}}" data-input="thumbnail{{$key}}" data-preview="holder{{$key}}" class="lfm-btn btn btn-primary">
-                               <i class="fa fa-picture-o"></i> Choose
+                               <i class="fa fa-picture-o"></i> Chọn
                              </a>
                             <a class="btn btn-warning remove-image">
                                 <i class="fa fa-remove"></i>Xóa
                             </a>
                            </span>
-                            <input id="thumbnail{{$key}}" class="form-control" type="text" name="images[]" value="{{ $image }}" placeholder="Default Input">
-                            <img id="holder{{$key}}" src="{{ asset($image) }}" style="margin-top:15px;max-height:100px;">
+                                <input id="thumbnail{{$key}}" class="form-control" type="text" name="images[]" value="{{ $image }}" placeholder="Default Input">
+                                <img id="holder{{$key}}" src="{{ asset($image) }}" style="margin-top:15px;max-height:100px;">
+                            </div>
                         </div>
-                    </div>
 
-                @endforeach
+                    @endforeach
                 @endif
 
 
@@ -89,26 +89,26 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Giá niêm yết</label>
                     <div class="col-sm-8">
-                        <input type="text" name="priceCore" class="form-control1" id="focusedinput" value="{{ $product->priceCore }}" placeholder="Default Input">
+                        <input type="text" name="priceCore" class="form-control" id="focusedinput" value="{{ $product->priceCore }}" placeholder="Default Input">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Giá bán</label>
                     <div class="col-sm-8">
-                        <input type="text" name="priceSale" class="form-control1" id="focusedinput" value="{{ $product->priceSale }}" placeholder="Default Input">
+                        <input type="text" name="priceSale" class="form-control" id="focusedinput" value="{{ $product->priceSale }}" placeholder="Default Input">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tồn kho</label>
                     <div class="col-sm-8">
-                        <input type="text" name="stock" class="form-control1" id="focusedinput" value="{{ $product->stock }}" placeholder="Default Input">
+                        <input type="text" name="stock" class="form-control" id="focusedinput" value="{{ $product->stock }}" placeholder="Default Input">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Thông Tin Vận Chuyển</label>
                     <div class="col-sm-8">
-                        <input type="text" name="ship_info" class="form-control1" id="focusedinput" value="{{ $product->ship_info }}" placeholder="Default Input">
+                        <input type="text" name="ship_info" class="form-control" id="focusedinput" value="{{ $product->ship_info }}" placeholder="Default Input">
                     </div>
                 </div>
 
@@ -146,7 +146,7 @@
                     </div>
                 </div>
                 <div class="col-sm-offset-2">
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Lưu</button>
                 </div>
             </form>
         </div>
@@ -156,16 +156,13 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-
-            var domain = "http://localhost/project_foods/project/public/laravel-filemanager";
+            var domain = "http://foods.local/laravel-filemanager";
             $('#lfm').filemanager('image', {prefix: domain});
-
             $('#plus-image').on('click',function (e) {
                 e.preventDefault();
                 var html = '';
                 var lfm_btn_leng = $('.lfm-btn').length;
                 var lfm_btn_id_next = lfm_btn_leng+1;
-
                 for (var i = 1;i<1000;i++){
                     if ($('#lfm'+lfm_btn_id_next).length < 1){
                         html +='<div class="form-group">\n' +
@@ -173,7 +170,7 @@
                             '                    <div class="col-sm-8">\n' +
                             '                        <span class="input-group-btn">\n' +
                             '                             <a id="lfm'+lfm_btn_id_next+'" data-input="thumbnail'+lfm_btn_id_next+'" data-preview="holder'+lfm_btn_id_next+'" class="lfm-btn btn btn-primary">\n' +
-                            '                               <i class="fa fa-picture-o"></i> Choose\n' +
+                            '                               <i class="fa fa-picture-o"></i> Chọn\n' +
                             '                             </a>\n' +
                             '                            <a class="btn btn-warning remove-image">\n' +
                             '                                <i class="fa fa-remove"></i>Xóa\n' +
@@ -189,8 +186,7 @@
                 }
                 var box =$(this).closest('.form-group');
                 $(html).insertBefore(box);
-
-                var domain = "http://localhost/project_foods/project/public/laravel-filemanager";
+                var domain = "http://foods.local/laravel-filemanager";
                 $('.lfm-btn').filemanager('image', {prefix: domain});
             });
             $(document).on('click','.remove-image',function (e) {

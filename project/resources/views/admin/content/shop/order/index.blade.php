@@ -18,7 +18,7 @@
                     <th>Email</th>
                     <th>Tổng Tiền</th>
                     <th>Tài Khoản Đặt Hàng</th>
-                    <th>Actions</th>
+                    <th>Hành động</th>
 
                 </tr>
                 </thead>

@@ -15,9 +15,9 @@
                 <tr>
                     <th>#</th>
                     <th>Tên</th>
-                    <th>Parent</th>
-                    <th>Menu</th>
-                    <th>Actions</th>
+                    <th>Cha</th>
+                    <th>Danh mục</th>
+                    <th>Hành động</th>
 
                 </tr>
                 </thead>

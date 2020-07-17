@@ -20,23 +20,19 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tên Danh Mục</label>
                     <div class="col-sm-8">
-                        <input type="text" name="name" class="form-control1" id="focusedinput" value="{{$cat->name}}" placeholder="Default Input">
+                        <input type="text" name="name" class="form-control" id="focusedinput" value="{{$cat->name}}" placeholder="Default Input">
                     </div>
-                    <div class="col-sm-2">
-                        <p class="help-block">Your help text!</p>
-                    </div>
+
                 </div>
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Slug</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">Đường dẫn tĩnh</label>
                     <div class="col-sm-8">
-                        <input type="text" name="slug" class="form-control1" id="focusedinput" value="{{$cat->slug}}" placeholder="Default Input">
+                        <input type="text" name="slug" class="form-control" id="focusedinput" value="{{$cat->slug}}" placeholder="Default Input">
                     </div>
-                    <div class="col-sm-2">
-                        <p class="help-block">Your help text!</p>
-                    </div>
+
                 </div>
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Images</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">Ảnh</label>
                     <div class="col-sm-8">
                 <span class="input-group-btn">
                      <a id="lfm1" data-input="thumbnail1" data-preview="holder1" class="lfm-btn btn btn-primary">
@@ -61,7 +57,7 @@
                 </div>
 
                 <div class="col-sm-offset-2">
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Lưu</button>
                 </div>
             </form>
         </div>
@@ -69,8 +65,7 @@
     <script src="{{asset('/vendor/laravel-filemanager/js/lfm.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-
-            var domain = "http://localhost/project_foods/project/public/laravel-filemanager";
+            var domain = "http://foods.local/laravel-filemanager";
             $('.lfm-btn').filemanager('image', {prefix: domain});
         })
     </script>

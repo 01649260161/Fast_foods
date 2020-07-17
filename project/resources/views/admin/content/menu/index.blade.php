@@ -16,7 +16,7 @@
                     <th>#</th>
                     <th>Tên</th>
                     <th>Vị Trí</th>
-                    <th>Actions</th>
+                    <th>Hành động</th>
 
                 </tr>
                 </thead>

@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="zxx">
 
 <head>
-    <title>Humburger Restaurants Category Bootstrap Responsive Template | Home :: W3layouts</title>
+    <title>Website bán đồ ăn nhanh</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
@@ -18,11 +18,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
         }, false);
-
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
-
     </script>
     <!-- //Meta tag Keywords -->
     <!-- Custom-Files -->
@@ -54,6 +52,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </style>
 <body>
 <!-- mian-content -->
+<?php
+// echo "<pre>";
+// print_r($fe_global_contact);
+// echo "</pre>";
+// die;
+?>
 <?php $banner_main_location = isset($banner_main->image) ? asset($banner_main->image): ''?>
 <?php $sale1_banner_location = isset($sale1_banner->image) ? asset($sale1_banner->image) : ''?>
 <?php $sale2_banner_location = isset($sale2_banner->image) ? asset($sale2_banner->image) : ' '?>
@@ -77,31 +81,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <label for="drop" class="toggle">Menu</label>
                     <input type="checkbox" id="drop" />
                     <ul class="menu mt-2 ml-auto">
-                        <li class="active"><a href="index.blade.php">Home</a></li>
-                        <li><a href="#about" class="scroll">About</a></li>
-                        <li><a href="#menu" class="scroll">Menu</a></li>
+                        <li class="active"><a href="{{url('/')}}">Trang chủ</a></li>
+                        <li><a href="#about" class="scroll">Thông tin</a></li>
+{{--                        <li><a href="#menu" class="scroll">Danh mục</a></li>--}}
                         <li>
                             <!-- First Tier Drop Down -->
-                            <label for="drop-2" class="toggle">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
-                            <a href="#">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                            <label for="drop-2" class="toggle">Danh mục <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+                            <a href="#">Danh mục <span class="fa fa-angle-down" aria-hidden="true"></span></a>
                             <input type="checkbox" id="drop-2" />
                             <ul class="inner-ul">
-                                <li><a class="scroll" href="#gallery">Gallery</a></li>
-                                <li><a href="#services" class="scroll">Services</a></li>
-                                <li><a href="#menu" class="scroll">Menu</a></li>
+                                <li><a class="scroll" href="{{url('/shop/category/1')}}">Sản Phẩm</a></li>
+                                <li><a href="{{url('/content/category/1')}}" class="scroll">Bài viết</a></li>
                             </ul>
                         </li>
-                        <li><a href="#testimonials" class="scroll">Reviews</a></li>
-                        <li><a href="#contact" class="scroll">Contact</a></li>
+                        <li><a href="#testimonials" class="scroll">Đánh giá</a></li>
+                        <li><a href="#contact" class="scroll">Liên hệ</a></li>
                         <li>
                             <!-- First Tier Drop Down -->
-                            <label for="drop-2" class="toggle">Login<span class="fa fa-angle-down" aria-hidden="true"></span> </label>
-                            <a href="#">Login<span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                            <label for="drop-2" class="toggle">Đăng nhập<span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+                            <a href="#">Đăng nhập<span class="fa fa-angle-down" aria-hidden="true"></span></a>
                             <input type="checkbox" id="drop-2" />
                             <ul class="inner-ul">
-                                <li><a href="{{route('login')}}" class="scroll">User</a></li>
-                                <li><a href="{{route('admin.auth.login')}}" class="scroll" >Admin</a></li>
-                                <li><a href="{{route('shipper.auth.login')}}" class="scroll">Shipper</a></li>
+                                <li><a href="{{route('login')}}" class="scroll">Khách hàng</a></li>
+                                <li><a href="{{route('admin.auth.login')}}" class="scroll" >Quản lý</a></li>
+                                <li><a href="{{route('shipper.auth.login')}}" class="scroll">Giao hàng</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -115,9 +118,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
             <div class="banner-info-w3layouts text-center">
-                <h3>Burger Special</h3>
+                <h3>Bánh Burger</h3>
                 <div class="read-more">
-                    <a href="#about" class="read-more scroll">Read More </a> </div>
+                    <a href="#about" class="read-more scroll">Đọc thêm </a> </div>
             </div>
             <div class="row order-info">
                 <div class="middle mt-3 col-md-6 text-left">
@@ -131,7 +134,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                 </div>
                 <div class="middle-right mt-md-3 col-md-6 text-right">
-                    <h6><span class="fa fa-phone"></span> Order Now : 123456789</h6>
+                    <h6><span class="fa fa-phone"></span> Đặt hàng ngay : {{$fe_global_contact['phone']}}</h6>
                 </div>
             </div>
         </div>
@@ -140,81 +143,79 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 <!--// mian-content -->
 <!-- banner-bottom-wthree -->
-<div class="middile-inner-con">
-
-    <div class="tab-main mx-auto text-center">
-
-        <div class="container-fluid px-lg-5">
-
-            <nav class="py-4 d-lg-flex">
-                <?php echo $fe_menus_items_header_html?>
-            </nav>
-        </div>
-
-    </div>
-</div>
+{{--<div class="middile-inner-con">--}}
+{{--    <div class="tab-main mx-auto text-center">--}}
+{{--        <div class="container-fluid px-lg-5">--}}
+{{--            <nav class="py-4 d-lg-flex">--}}
+                <?php
+//                echo $fe_menus_items_header_html
+                ?>
+{{--            </nav>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 @if(isset($sale1_banner->id))
-<section class="banner-bottom-wthree py-5" id="about">
-    <div class="container py-md-3">
-        <div class="row banner-grids">
-            <div class="col-md-6 content-left-bottom text-left pr-lg-5">
-                <?php echo ($sale1_banner->desc);?>
-            </div>
-            <div class="col-md-6 content-right-bottom text-left">
-                <img src="{{url($sale1_banner_location)}}" alt="news image" class="img-fluid">
+    <section class="banner-bottom-wthree py-5" id="about">
+        <div class="container py-md-3">
+            <div class="row banner-grids">
+                <div class="col-md-6 content-left-bottom text-left pr-lg-5">
+                    <?php echo ($sale1_banner->desc);?>
+                </div>
+                <div class="col-md-6 content-right-bottom text-left">
+                    <img src="{{url($sale1_banner_location)}}" alt="news image" class="img-fluid">
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 @endif
 <!-- //banner-bottom-wthree -->
 <!--/ about -->
 <section class="services py-5" id="services">
     <div class="container py-md-5">
         <div class="header pb-lg-3 pb-3 text-center">
-            <h3 class="tittle two mb-lg-3 mb-3">What kind of Foods we serve for you</h3>
+            <h3 class="tittle two mb-lg-3 mb-3">CÁC LOẠI ĐỒ ĂN CHÚNG TÔI PHỤC VỤ CHO BẠN</h3>
         </div>
         <div class="row ab-info mt-lg-4">
             @if(isset($sale2_banner->id))
-            <div class="col-lg-3 ab-content">
-                <div class="ab-content-inner">
-                    <a href="{{$sale2_banner->link}}"><img src="{{url($sale2_banner_location)}}" alt="news image" class="img-fluid"></a>
-                    <div class="ab-info-con">
-                        <?php echo ($sale2_banner->desc);?>
+                <div class="col-lg-3 ab-content">
+                    <div class="ab-content-inner">
+                        <a href="{{$sale2_banner->link}}"><img src="{{url($sale2_banner_location)}}" alt="news image" class="img-fluid"></a>
+                        <div class="ab-info-con">
+                            <?php echo ($sale2_banner->desc);?>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endif
             @if(isset($sale3_banner->id))
-            <div class="col-lg-3 ab-content">
-                <div class="ab-content-inner">
-                    <a href="{{$sale3_banner->link}}"><img src="{{url($sale3_banner_location)}}" alt="news image" class="img-fluid"></a>
-                    <div class="ab-info-con">
-                        <?php echo ($sale3_banner->desc);?>
+                <div class="col-lg-3 ab-content">
+                    <div class="ab-content-inner">
+                        <a href="{{$sale3_banner->link}}"><img src="{{url($sale3_banner_location)}}" alt="news image" class="img-fluid"></a>
+                        <div class="ab-info-con">
+                            <?php echo ($sale3_banner->desc);?>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endif
             @if(isset($sale4_banner->id))
-            <div class="col-lg-3 ab-content">
-                <div class="ab-content-inner">
-                    <a href="{{$sale4_banner->link}}"><img src="{{url($sale4_banner_location)}}" alt="news image" class="img-fluid"></a>
-                    <div class="ab-info-con">
-                        <?php echo ($sale4_banner->desc);?>
+                <div class="col-lg-3 ab-content">
+                    <div class="ab-content-inner">
+                        <a href="{{$sale4_banner->link}}"><img src="{{url($sale4_banner_location)}}" alt="news image" class="img-fluid"></a>
+                        <div class="ab-info-con">
+                            <?php echo ($sale4_banner->desc);?>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endif
             @if(isset($sale5_banner->location_id))
-            <div class="col-lg-3 ab-content">
-                <div class="ab-content-inner">
-                    <a href="{{$sale5_banner->link}}"><img src="{{url($sale5_banner_location)}}" alt="news image" class="img-fluid"></a>
-                    <div class="ab-info-con">
-                        <?php echo ($sale5_banner->desc);?>
+                <div class="col-lg-3 ab-content">
+                    <div class="ab-content-inner">
+                        <a href="{{$sale5_banner->link}}"><img src="{{url($sale5_banner_location)}}" alt="news image" class="img-fluid"></a>
+                        <div class="ab-info-con">
+                            <?php echo ($sale5_banner->desc);?>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endif
         </div>
     </div>
@@ -224,7 +225,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <section class="mid-sec py-5" id="menu">
     <div class="container-fluid py-lg-5">
         <div class="header pb-lg-3 pb-3 text-center">
-            <h3 class="tittle mb-lg-3 mb-3">Bigger & Bolder</h3>
+            <h3 class="tittle mb-lg-3 mb-3">SẢN PHẨM TIÊU BIỂU</h3>
         </div>
         <div class="middile-inner-con">
             <div class="tab-main mx-auto text-center">
@@ -247,18 +248,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                                     <div class="col-md-3 ab-content">
                                         <a href="{{url('shop/product/'.$product->id)}}">
-                                        <div class="tab-wrap" style="height: 378.54px;margin-bottom: 25px">
-                                            <?php if (count($images)):?>
-                                            @foreach($images as $image)
-                                                <img src="{{asset($image)}}" style="width: 136.56px;height: 135.5px" alt="news image" class="img-fluid">
-                                                @break
-                                            @endforeach
-                                            <?php endif;?>
-                                            <div class="ab-info-con">
-                                                <h4>{{$product->name}}</h4>
-                                                <p class="price">{{number_format($product->priceSale)}} VND</p>
+                                            <div class="tab-wrap" style="height: 378.54px;margin-bottom: 25px">
+                                                <?php if (count($images)):?>
+                                                @foreach($images as $image)
+                                                    <img src="{{asset($image)}}" style="width: 136.56px;height: 135.5px" alt="news image" class="img-fluid">
+                                                    @break
+                                                @endforeach
+                                                <?php endif;?>
+                                                <div class="ab-info-con">
+                                                    <h4>{{$product->name}}</h4>
+                                                    <p class="price">{{number_format($product->priceSale)}} VND</p>
+                                                </div>
                                             </div>
-                                        </div>
                                         </a>
                                     </div>
 
@@ -278,34 +279,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="container py-lg-3">
         <div class="test-info text-center">
             <h3 class="tittle order">
-                <span>Free Delivery With</span>Burger Of the Day</h3>
+                <span>GIAO HÀNG MIỄN PHÍ VỚI</span>BURGER TRONG NGÀY</h3>
 
             <div class="row mt-lg-4 mt-3">
                 <div class="col-md-6 order-left-content text-right">
-                    <h4>$99</h4>
+                    <h4>99.000 VND</h4>
                 </div>
                 <div class="col-md-6 order-right-content text-left">
                     <ul class="tic-info list-unstyled">
                         <li>
 
-                            <span class="fa fa-long-arrow-right mr-2"></span> Integer sit amet mattis quam
+                            <span class="fa fa-long-arrow-right mr-2"></span> Giao hàng nhanh chóng
 
                         </li>
                         <li>
 
-                            <span class="fa fa-long-arrow-right mr-2"></span> Praesent ullamcorper dui turpis
+                            <span class="fa fa-long-arrow-right mr-2"></span> Siêu tiện lợi
 
                         </li>
                         <li>
 
-                            <span class="fa fa-long-arrow-right mr-2"></span> Integer sit amet mattis quam
+                            <span class="fa fa-long-arrow-right mr-2"></span> Siêu tiết kiệm
 
                         </li>
 
                     </ul>
                 </div>
                 <div class="read-more mx-auto text-center">
-                    <a href="#contact" class="read-more scroll">Read More </a> </div>
+                    <a href="#contact" class="read-more scroll">Đọc thêm </a> </div>
             </div>
         </div>
     </div>
@@ -316,7 +317,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <section class="gallery py-5" id="gallery">
     <div class="container py-md-5">
         <div class="header text-center">
-            <h3 class="tittle mb-lg-5 mb-3">Our Gallery</h3>
+            <h3 class="tittle mb-lg-5 mb-3">ĐỒ ĂN NGON</h3>
         </div>
         <div class="row news-grids text-center gallery-wrap">
             <div class="col-md-3 gal-img">
@@ -382,7 +383,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="layer footer">
         <div class="container py-5">
             <div class="test-info text-center">
-                <h3 class="my-md-2 my-3">Jenifer Burns</h3>
+                <h3 class="my-md-2 my-3"><?php  echo isset($last_review->name)? $last_review->name:"HienTm";?></h3>
 
                 <ul class="list-unstyled w3ls-icons clients mb-md-4">
                     <li>
@@ -406,7 +407,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </a>
                     </li>
                 </ul>
-                <p><span class="fa fa-quote-left"></span> Lorem Ipsum has been the industry's standard since the 1500s. Praesent ullamcorper dui turpis.Nulla pellentesque mi non laoreet eleifend. Integer porttitor mollisar lorem, at molestie arcu pulvinar ut. <span class="fa fa-quote-right"></span></p>
+                <p><span class="fa fa-quote-left"></span><?php  echo isset($last_review->content)? $last_review->content:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam sit omnis, numquam dolorem veniam laudantium, est ratione mollitia nesciunt necessitatibus molestias nihil harum ipsum ea enim temporibus magnam cumque a?";?><span class="fa fa-quote-right"></span></p>
 
             </div>
         </div>
@@ -418,8 +419,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <h3>Top Brands</h3>
         <div class="sliderfig">
             <div class="nbs-flexisel-container"><div class="nbs-flexisel-inner"><ul id="flexiselDemo1" class="nbs-flexisel-ul" style="left: -285px; display: block;">
-
-
                         <li class="nbs-flexisel-item" style="width: 285px;">
                             <img src="http://localhost/laravel_1809e/authen/public/frontend_assets/images/6.png" alt=" " class="img-responsive">
                         </li>
@@ -469,7 +468,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         }
                     }
                 });
-
             });
         </script>
         <script type="text/javascript" src="{{asset('shop_assets/js/jquery.flexisel1.js')}}"></script>
@@ -479,7 +477,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <section class="contact py-5" id="contact">
     <div class="container pb-md-5">
         <div class="header py-lg-5 pb-3 text-center">
-            <h3 class="tittle mb-lg-5 mb-3"> Newsletter</h3>
+            <h3 class="tittle mb-lg-5 mb-3"> Đăng ký</h3>
         </div>
 
         <div class="contact-form mx-auto text-left">
@@ -488,7 +486,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="row">
                     <div class="col-lg-4 con-gd">
                         <div class="form-group">
-                            <label>Name *</label>
+                            <label>Tên *</label>
                             <input type="text" class="form-control" id="name" placeholder="" name="name" required="">
                         </div>
                     </div>
@@ -500,7 +498,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="col-lg-4 contact-page">
                         <div class="form-group">
-                            <label>Submit *</label>
+                            <label>Gửi *</label>
                             <button type="submit" class="btn btn-default">Submit</button>
                         </div>
                     </div>
@@ -509,6 +507,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             </form>
         </div>
+
         <ul class="list-unstyled row text-left mb-lg-5 mb-3">
             <li class="col-lg-4 adress-info">
                 <div class="row">
@@ -516,9 +515,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <span class="fa fa-map-marker"></span>
                     </div>
                     <div class="col-md-9 text-left">
-                        <h6>Location</h6>
-                        <p>The company name
-                            <br>Hà Nội City. </p>
+                        <h6>Địa chỉ</h6>
+                        <p><?php echo $fe_global_contact['address']?></p>
                     </div>
                 </div>
             </li>
@@ -530,9 +528,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="col-md-9 text-left">
                         <h6>Email</h6>
-                        <a href="mailto:tranminhhien130398@gmail.com">tranminhhien130398@gmail.com</a>
-                        <br>
-                        <a href="mailto:tranminhhienaaa@gmail.com">tranminhhienaaa@gmail.com</a>
+                        <a href="mailto:tranminhhien130398@gmail.com"><?php echo $fe_global_contact['email']?></a>
                     </div>
                 </div>
             </li>
@@ -542,9 +538,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <span class="fa fa-mobile"></span>
                     </div>
                     <div class="col-md-9 text-left">
-                        <h6>Phone Number</h6>
-                        <p>+ 1234567890</p>
-                        <p>+ 0987654321</p>
+                        <h6>Số điện thoại</h6>
+                        <p><?php echo "+ ". $fe_global_contact['phone']?></p>
                     </div>
                 </div>
             </li>
@@ -562,26 +557,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <h2>
                         <a href="{{url('/')}}"><img src="{{asset($fe_global_setting['footer_logo'])}}" style="width: 40px;height: 40px" alt="">{{$fe_global_setting['web_name']}}</a>
                     </h2>
-                    <p class="my-3">Donec consequat sam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus</p>
-                    <p>
-                        Id quod possimusapien ut leo cursus rhoncus. Nullam dui mi, vulputate ac metus at, semper varius orci.
-                    </p>
+                    <?php echo $fe_global_contact['web_intro'];?>
                 </div>
                 <div class="col-lg-4 col-md-6 mt-md-0 mt-5">
                     <div class="footer-w3pvt">
-                        <h3 class="mb-3 w3pvt_title">Opening Hours</h3>
+                        <h3 class="mb-3 w3pvt_title">Giờ mở cửa</h3>
                         <hr>
                         <ul class="list-info-w3pvt last-w3ls-contact mt-lg-4">
                             <li>
-                                <p> Monday - Friday 08.00 am - 10.00 pm</p>
+                                <p> Thứ 2 - Thứ 5: 08.00 am - 10.00 pm</p>
 
                             </li>
                             <li class="my-2">
-                                <p>Saturday 08.00 am - 10.00 pm</p>
+                                <p>Thứ 7: 08.00 am - 10.00 pm</p>
 
                             </li>
                             <li class="my-2">
-                                <p>Sunday 08.00 am - 10.00 pm</p>
+                                <p>Chủ Nhật: 08.00 am - 10.00 pm</p>
 
                             </li>
 
@@ -591,7 +583,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <div class="col-lg-3 col-md-6 mt-lg-0 mt-5">
                     <div class="footer-w3pvt">
-                        <h3 class="mb-3 w3pvt_title">Contact Us</h3>
+                        <h3 class="mb-3 w3pvt_title">Liên hệ</h3>
                         <hr>
                         <div class="last-w3ls-contact">
                             <p>
@@ -599,20 +591,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </p>
                         </div>
                         <div class="last-w3ls-contact my-2">
-                            <p>+ 456 123 7890</p>
+                            <p><?php echo "+ ". $fe_global_contact['phone']?></p>
                         </div>
                         <div class="last-w3ls-contact">
-                            <p>+ 90 nsequursu dsdesdc,
-                                <br>xxx Honey State 049436.</p>
+                            <p><?php echo $fe_global_contact['address']?></p>
                         </div>
                     </div>
                 </div>
 
             </div>
 
-            <p class="copy-right-grids text-li text-center my-sm-4 my-4">© 2019 Humburger. All Rights Reserved | Design by
-                <a href="http://w3layouts.com/"> W3layouts </a>
-            </p>
+{{--            <p class="copy-right-grids text-li text-center my-sm-4 my-4">© 2019 Humburger. All Rights Reserved | Design by--}}
+{{--                <a href="http://w3layouts.com/"> W3layouts </a>--}}
+{{--            </p>--}}
             <div class="w3ls-footer text-center mt-4">
                 <ul class="list-unstyled w3ls-icons">
                     <li>

@@ -20,24 +20,20 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tên</label>
                     <div class="col-sm-8">
-                        <input type="text" name="name" class="form-control1" value ="{{old("name")}}" id="focusedinput" placeholder="Default Input">
+                        <input type="text" name="name" class="form-control" value ="{{old("name")}}" id="focusedinput" placeholder="Default Input">
                     </div>
-                    <div class="col-sm-2">
-                        <p class="help-block">Your help text!</p>
-                    </div>
+
                 </div>
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Slug</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">Đường dẫn tĩnh</label>
                     <div class="col-sm-8">
-                        <input type="text" name="slug" class="form-control1" value ="{{old("slug")}}" id="focusedinput" placeholder="Default Input">
+                        <input type="text" name="slug" class="form-control" value ="{{old("slug")}}" id="focusedinput" placeholder="Default Input">
                     </div>
-                    <div class="col-sm-2">
-                        <p class="help-block">Your help text!</p>
-                    </div>
+
                 </div>
 
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Location</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">Vị trí</label>
                     <div class="col-sm-8">
                         <select name="location">
                             <option value="0">Không Hiện</option>
@@ -59,7 +55,7 @@
 
 
                 <div class="col-sm-offset-2">
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Lưu</button>
                 </div>
             </form>
         </div>

@@ -17,7 +17,7 @@
                     <th>#</th>
                     <th>Tên</th>
                     <th>Email</th>
-                    <th>Actions</th>
+                    <th>Hành động</th>
 
                 </tr>
                 </thead>

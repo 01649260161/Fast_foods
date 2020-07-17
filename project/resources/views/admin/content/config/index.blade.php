@@ -21,17 +21,15 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tên Trang Web</label>
                     <div class="col-sm-8">
-                        <input type="text" name="web_name" class="form-control1" id="focusedinput" value="{{$configs['web_name']}}" placeholder="Default Input">
+                        <input type="text" name="web_name" class="form-control" id="focusedinput" value="{{$configs['web_name']}}" placeholder="Default Input">
                     </div>
-                    <div class="col-sm-2">
-                        <p class="help-block">Your help text!</p>
-                    </div>
+
                 </div>
 
 
 
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Header Logo</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">Logo đầu trang</label>
                     <div class="col-sm-8">
                 <span class="input-group-btn">
                      <a id="lfm1" data-input="thumbnail1" data-preview="holder1" class="lfm-btn btn btn-primary">
@@ -47,7 +45,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Footer Logo</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">Logo chân trang</label>
                     <div class="col-sm-8">
                 <span class="input-group-btn">
                      <a id="lfm2" data-input="thumbnail2" data-preview="holder2" class="lfm-btn btn btn-primary">
@@ -81,8 +79,7 @@
     <script src="{{asset('/vendor/laravel-filemanager/js/lfm.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-
-            var domain = "http://localhost/project_foods/project/public/laravel-filemanager";
+            var domain = "http://foods.local/laravel-filemanager";
             $('.lfm-btn').filemanager('image', {prefix: domain});
         })
     </script>

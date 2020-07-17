@@ -52,7 +52,7 @@
     </style>
     <div id="custom-cart">
 
-    <div class="checkout" style="margin-top: 150px">
+    <div class="checkout" style="margin-top: 92px">
         <div class="container">
             <h3>Your shopping cart contains: <span>{{ \Cart::getTotalQuantity()}} Sản Phẩm </span></h3>
             <!---728x90--->
@@ -61,13 +61,13 @@
                 <table class="timetable_sub">
                     <thead>
                     <tr>
-                        <th>SL No.</th>
-                        <th>Product</th>
-                        <th>Quality</th>
-                        <th>Product Name</th>
-                        <th>Giá Sản Phẩm</th>
-                        <th>Giá Số Lượng</th>
-                        <th>Remove</th>
+                        <th>STT</th>
+                        <th>Ảnh</th>
+                        <th>Số lượng</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Đơn giá</th>
+                        <th>Giá</th>
+                        <th>Hành động</th>
                     </tr>
                     </thead>
                     <tbody>

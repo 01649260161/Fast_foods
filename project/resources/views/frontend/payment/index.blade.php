@@ -14,41 +14,50 @@
             text-transform: uppercase;
             margin: 0 0 3em;
         }
+
         #custom-cart .checkout h3 span {
             color: #ff9b05;
         }
+
         #custom-cart table.timetable_sub {
             width: 100%;
             margin: 0 auto;
         }
+
         #custom-cart .timetable_sub thead {
             background: #F2F2F2;
         }
+
         #custom-cart .timetable_sub th:nth-child(1) {
             border-left: 1px solid #C5C5C5;
         }
-        #custom-cart .timetable_sub th,#custom-cart .timetable_sub td {
+
+        #custom-cart .timetable_sub th, #custom-cart .timetable_sub td {
             text-align: center;
             padding: 7px;
             font-size: 14px;
             color: #212121;
         }
+
         #custom-cart .timetable_sub td {
             border: 1px solid #CDCDCD;
         }
+
         #custom-cart a {
             color: #337ab7;
             text-decoration: none;
         }
+
         #custom-cart td.invert-image a img {
             width: 30%;
             margin: 0 auto;
         }
+
         #custom-cart .quantity-select .entry.value-minus, .quantity-select .entry.value-minus1 {
             margin-left: 0;
         }
     </style>
-    <div class="using-border py-3" style="margin-top: 250px">
+    <div class="using-border py-3">
         <div class="inner_breadcrumb  ml-4">
             <ul class="short_ls">
                 <li>
@@ -59,7 +68,7 @@
             </ul>
         </div>
     </div>
-    <div id="custom-cart" >
+    <div id="custom-cart">
         <div class="checkout" style="margin-top: 0px">
             <div class="container">
                 <h3>Your shopping cart contains: <span>{{ \Cart::getTotalQuantity()}} Sản Phẩm </span></h3>
@@ -69,7 +78,7 @@
                     <table class="timetable_sub">
                         <thead>
                         <tr>
-                            <th>SL No.</th>
+                            <th>STT</th>
                             <th>Product</th>
                             <th>Quality</th>
                             <th>Product Name</th>
@@ -78,17 +87,18 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php $i =1?>
+                        <?php $i = 1?>
                         @foreach($cart_products as $cart_product)
                             <tr class="rem1">
                                 <td class="invert">{{$i}}</td>
                                 <?php $product_id = $cart_product->id?>
-                                <?php $images = (isset($products[$product_id]->images) &&$products[$product_id]->images)  ?json_decode($products[$product_id]->images):array();?>
+                                <?php $images = (isset($products[$product_id]->images) && $products[$product_id]->images) ? json_decode($products[$product_id]->images) : array();?>
 
                                 <td class="invert-image">
                                     <a href="{{url('shop/product/'.$product_id)}}">
                                         @foreach($images as $image)
-                                            <img src="{{asset($image)}}" alt=" " style="max-width: 400px" class="img-responsive">
+                                            <img src="{{asset($image)}}" alt=" " style="max-width: 400px"
+                                                 class="img-responsive">
                                             @break
                                         @endforeach
                                     </a>
@@ -103,24 +113,27 @@
                                 </td>
                                 <td class="invert">{{$cart_product->name}}</td>
                                 <td class="invert"><?php echo number_format($cart_product->price)?> VND</td>
-                                <td class="invert"><?php echo number_format($cart_product->price * $cart_product->quantity)?> VND</td>
+                                <td class="invert"><?php echo number_format($cart_product->price * $cart_product->quantity)?>
+                                    VND
+                                </td>
                             </tr>
                             <?php $i++;?>
                         @endforeach
                         <!--quantity-->
                         <script>
-                            $('.value-plus').on('click', function(){
-                                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+                            $('.value-plus').on('click', function () {
+                                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
                                 divUpd.text(newVal);
                             });
 
-                            $('.value-minus').on('click', function(){
-                                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
-                                if(newVal>=1) divUpd.text(newVal);
+                            $('.value-minus').on('click', function () {
+                                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
+                                if (newVal >= 1) divUpd.text(newVal);
                             });
                         </script>
                         <!--quantity-->
-                        </tbody></table>
+                        </tbody>
+                    </table>
                 </div>
 
             </div>
@@ -208,6 +221,7 @@
             #w3payment .row {
                 flex-direction: column-reverse;
             }
+
             #w3payment .col-25 {
                 margin-bottom: 20px;
             }
@@ -217,14 +231,14 @@
 
     <h1 style="text-align: center"><?php echo number_format($total_payment)?> VND</h1>
     <script>
-            addEventListener("load", function () {
-                setTimeout(hideURLbar, 0);
-            }, false);
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-            function hideURLbar() {
-                window.scrollTo(0, 1);
-            }
-        </script>
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
 
     <!-- //short-->
     <!-- top Products -->
@@ -249,7 +263,8 @@
                                 </div>
                                 <div class="col-50">
                                     <label for="zip">Số Điện Thoại</label>
-                                    <input type="text" id="customer_phone" name="customer_phone" placeholder="0341234567">
+                                    <input type="text" id="customer_phone" name="customer_phone"
+                                           placeholder="0341234567">
                                 </div>
                             </div>
                         </div>
@@ -273,7 +288,7 @@
                     </div>
                     <div>
                         <label>Ghi Chứ</label>
-                        <textarea name="customer_note" style="width: 100%" rows="10" id="" ></textarea>
+                        <textarea name="customer_note" style="width: 100%" rows="10" id=""></textarea>
                     </div>
                     <label>
 

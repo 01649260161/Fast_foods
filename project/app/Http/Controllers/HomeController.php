@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Mail;
 use App\Model\Front\OrderDetailModel;
 use App\Model\Front\OrderModel;
 use App\Model\Front\ShopProductModel;
@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Mail;
+//use Illuminate\Support\Facades\Mail;
+
 
 class HomeController extends Controller
 {
@@ -52,17 +53,18 @@ class HomeController extends Controller
     }
     public function order(Request $request){
 
+
         $input = $request->all();
 
-        $validatedData = $request->validate([
-            'customer_name' => 'required',
-            'customer_phone' => 'required',
-            'customer_email' => 'required',
-            'customer_note' => 'required',
-            'customer_address' => 'required',
-            'customer_city' => 'required',
-            'customer_country' => 'required',
-        ]);
+//        $validatedData = $request->validate([
+//            'customer_name' => 'required',
+//            'customer_phone' => 'required',
+//            'customer_email' => 'required',
+//            'customer_note' => 'required',
+//            'customer_address' => 'required',
+//            'customer_city' => 'required',
+//            'customer_country' => 'required',
+//        ]);
 
         $cartCollection = \Cart::getContent();
 
@@ -94,15 +96,22 @@ class HomeController extends Controller
             }
         }
 
-        $File = asset('files/1/DRINKS/coke-light.png');
-        Mail::send('frontend.payment.paymentsuccess', array('firstname'=>$input['customer_name'],'products'=>$products,'quantity'=>$cartCollection,'total'=> \Cart::getTotal(),'pathToFile'=>$pathToFile),
-            function($message) use ($pathToFile){
-            $message->to(Input::get('customer_email'))->subject('Đặt Hàng Thành Công!');
-                foreach ($pathToFile as $File){
-                    $message->attach($File);
-                }
+         $File = asset('files/1/DRINKS/coke-light.png');
+         Mail::send('frontend.payment.paymentsuccess', array('firstname'=>$input['customer_name'],'products'=>$products,'quantity'=>$cartCollection,'total'=> \Cart::getTotal(),'pathToFile'=>$pathToFile),
+             function($message) use ($pathToFile){
+             $message->to(Input::get('customer_email'))->subject('Đặt Hàng Thành Công!');
+                 foreach ($pathToFile as $File){
+                     $message->attach($File);
+                 }
+             });
 
-        });
+//        Mail::send(['text'=>'mail'], $data, function($message) {
+//            $message->to('tranminhhien130398@gmail.com', 'Tutorials Point')->subject
+//            ('Laravel Basic Testing Mail');
+//            $message->from('xyz@gmail.com','Virat Gandhi');
+//        });
+
+
 
         $order->customer_name = $input['customer_name'];
         $order->customer_phone =  $input['customer_phone'];
@@ -113,7 +122,7 @@ class HomeController extends Controller
         $order->customer_country =  $input['customer_country'];
         $order->total_price =  \Cart::getTotal();
         $order->status = 0;
-        $order->user_order =  Auth::user()->name;
+        $order->user_order =  Auth::user()->id;
         $order->save();
         foreach ($cartCollection as $product){
             $order_detail =new OrderDetailModel();

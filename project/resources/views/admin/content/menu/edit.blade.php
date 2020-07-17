@@ -20,35 +20,31 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tên Menu</label>
                     <div class="col-sm-8">
-                        <input type="text" name="name" class="form-control1" id="focusedinput" value="{{$menu->name}}" placeholder="Default Input">
+                        <input type="text" name="name" class="form-control" id="focusedinput" value="{{$menu->name}}" placeholder="Default Input">
                     </div>
-                    <div class="col-sm-2">
-                        <p class="help-block">Your help text!</p>
-                    </div>
+
                 </div>
 
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Slug</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">Đường dẫn tĩnh</label>
                     <div class="col-sm-8">
-                        <input type="text" name="slug" class="form-control1" id="focusedinput" value="{{$menu->slug}}" placeholder="Default Input">
+                        <input type="text" name="slug" class="form-control" id="focusedinput" value="{{$menu->slug}}" placeholder="Default Input">
                     </div>
-                    <div class="col-sm-2">
-                        <p class="help-block">Your help text!</p>
-                    </div>
+
                 </div>
 
                 <div class="form-group">
-                <label for="focusedinput" class="col-sm-2 control-label">Location</label>
-                <div class="col-sm-8">
-                    <select name="location">
-                        <option value="0">Không Hiện</option>
-                        @foreach($locations as $key_location => $location)
-                            <?php $selected = ($key_location == $menu->location)? 'selected':' ';?>
-                            <option value="{{$key_location}}" {{$selected}}>{{$location}}</option>
-                        @endforeach
-                    </select>
+                    <label for="focusedinput" class="col-sm-2 control-label">Vị trí</label>
+                    <div class="col-sm-8">
+                        <select name="location">
+                            <option value="0">Không Hiện</option>
+                            @foreach($locations as $key_location => $location)
+                                <?php $selected = ($key_location == $menu->location)? 'selected':' ';?>
+                                <option value="{{$key_location}}" {{$selected}}>{{$location}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
-        </div>
 
 
 
@@ -61,7 +57,7 @@
 
 
                 <div class="col-sm-offset-2">
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Lưu</button>
                 </div>
             </form>
         </div>

@@ -14,7 +14,7 @@
             color: red;
         }
     </style>
-    <div class="container" style="margin-top: 300px">
+    <div class="container" style="margin-top: 92px">
         <h1 style="text-align: center">Danh Mục Tin Tức</h1>
         <div class="row" style="margin-top: 50px">
             <div  class="col-sm-8">

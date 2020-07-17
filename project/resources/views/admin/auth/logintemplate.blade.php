@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="w3layouts-main">
-        <h2>{{ __('Login Admin') }}</h2>
+        <h2>{{ __('Đăng nhập quản lý') }}</h2>
         <form action="{{ route('admin.auth.loginAdmin') }}" method="post">
 
             @csrf
@@ -16,7 +16,7 @@
             @endif
 
 
-            <input id="password" placeholder="PASSWORD" type="password" class="ggg {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+            <input id="password" placeholder="MẬT KHẨU" type="password" class="ggg {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
             @if ($errors->has('password'))
                 <span class="invalid-feedback" role="alert">
@@ -32,7 +32,7 @@
                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                         <label class="form-check-label" for="remember">
-                            {{ __('Remember Me') }}
+                            {{ __('Ghi nhớ') }}
                         </label>
                     </div>
                 </div>
@@ -44,15 +44,15 @@
 
                     @if (Route::has('password.request'))
                         <a class="btn btn-link" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
+                            {{ __('Quên mật khẩu?') }}
                         </a>
                     @endif
                 </div>
 
             <div class="clearfix"></div>
-            <input type="submit" value="Sign In" name="login">
+            <input type="submit" value="Đăng nhập" name="login">
         </form>
-        <p>Don't Have an Account ?<a href="{{ route('admin.register') }}">Create an account</a></p>
+        <p>Bạn không có tài khoản ?<a href="{{ route('admin.register') }}">Tạo mới tài khoản</a></p>
     </div>
 
 @endsection

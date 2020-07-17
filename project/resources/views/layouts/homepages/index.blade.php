@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="zxx">
 
 <head>
-    <title>Humburger Restaurants Category Bootstrap Responsive Template | Home :: W3layouts</title>
+    <title>Website đồ ăn nhanh</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
@@ -65,11 +65,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div id="logo">
                         <h1> <a href="index.blade.php"><span class="fa fa-align-center" aria-hidden="true"></span>HB</a></h1>
                     </div>
-                    <label for="drop" class="toggle">Menu</label>
+                    <label for="drop" class="toggle">Trang chủ</label>
                     <input type="checkbox" id="drop" />
                     <ul class="menu mt-2 ml-auto">
-                        <li class="active"><a href="index.blade.php">Home</a></li>
-                        <li><a href="#about" class="scroll">About</a></li>
+                        <li class="active"><a href="index.blade.php">Trang chủ</a></li>
+                        <li><a href="#about" class="scroll">Thông tin</a></li>
                         <li><a href="#menu" class="scroll">Menu</a></li>
                         <li>
                             <!-- First Tier Drop Down -->

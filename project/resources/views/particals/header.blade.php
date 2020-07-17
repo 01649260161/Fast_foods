@@ -5,18 +5,20 @@
         background: #999999;
         display: block;
     }
-    .menu.mt-2.ml-auto li{
+
+    .menu.mt-2.ml-auto li {
         color: black;
         background: #999999;
         display: block;
     }
-    .navbar-light{
+
+    .navbar-light {
         margin: 0 auto;
     }
 </style>
 <link rel="stylesheet" href="{{asset('frontend_assets/css/bootstrap.css')}}">
 <!-- Bootstrap-Core-CSS -->
-<link rel="stylesheet" href="{{asset('frontend_assets/css/style.css')}}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{asset('frontend_assets/css/style.css')}}" type="text/css" media="all"/>
 
 <!-- Style-CSS -->
 <!-- font-awesome-icons -->
@@ -35,16 +37,18 @@
 <!--headder-->
 <div class="header-outs" id="home">
     <div class="header-bar">
-        <div class="info-top-grid">
+        <div class="info-top-grid" style="display: none">
             <div class="info-contact-agile">
                 <ul>
                     <li>
                         <span class="fas fa-phone-volume"></span>
-                        <p>+(000)123 4565 32</p>
+                        <p><?php echo "+ " . $fe_global_contact['phone'];?></p>
                     </li>
                     <li>
                         <span class="fas fa-envelope"></span>
-                        <p><a href="mailto:info@example.com">info@example1.com</a></p>
+                        <p>
+                            <a href="mailto:<?php echo $fe_global_contact['email'];?>"><?php echo $fe_global_contact['email'];?></a>
+                        </p>
                     </li>
                     <li>
                     </li>
@@ -54,13 +58,13 @@
         <div class="container-fluid">
             <div class="hedder-up row">
                 <div class="col-lg-3 col-md-3 logo-head">
-                    <h1><a class="navbar-brand" href="index.html">BURGER SPECIAL</a></h1>
+                    <h1><a class="navbar-brand" href="http://foods.local/">BURGER</a></h1>
                 </div>
                 <div class="col-lg-5 col-md-6 search-right">
                     <form action="{{url('/search')}}" class="form-inline my-lg-0" method="get">
                         @csrf
-                        <input class="form-control mr-sm-2" name="Search" type="search" placeholder="Search">
-                        <button class="btn" type="submit">Search</button>
+                        <input class="form-control mr-sm-2" name="Search" type="search" placeholder="Tìm kiếm">
+                        <button class="btn" type="submit">Tìm kiếm</button>
                     </form>
                 </div>
                 <div class="col-lg-4 col-md-3 right-side-cart">
@@ -83,30 +87,35 @@
                                 </form>
                             </li>
                             @if(isset(Auth::user()->name))
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div id="drop-down-logout" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                                    <div id="drop-down-logout" class="dropdown-menu dropdown-menu-right"
+                                         aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item"
+                                           href="http://foods.local/customer/<?php echo Auth::user()->id?>/edit">{{ __('Hồ sơ') }}</a>
+                                        <a class="dropdown-item"
+                                           href="http://foods.local/customer/<?php echo Auth::user()->id?>/history">{{ __('Lịch sử') }}</a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            {{ __('Đăng xuất') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
                             @endif
                             <script type="text/javascript">
                                 $(document).ready(function () {
-                                    $('#navbarDropdown').on('click',function (e) {
+                                    $('#navbarDropdown').on('click', function (e) {
                                         if ($(".dropdown-menu").is(":hidden")) {
                                             $(".dropdown-menu").slideDown();
-                                        }else {
+                                        } else {
                                             $(".dropdown-menu").slideUp();
                                         }
                                     })
@@ -118,22 +127,26 @@
             </div>
         </div>
 
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-light" style="display: none">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <nav class="py-4 d-lg-flex">
-                <?php echo $fe_menus_items_header_html?>
+                <?php
+                //                echo $fe_menus_items_header_html
+                ?>
             </nav>
         </nav>
 
     </div>
 </div>
 <style type="text/css">
-    .w3view-cart{
+    .w3view-cart {
         position: relative;
     }
-    #num-cart{
+
+    #num-cart {
         position: absolute;
         top: -11px;
         right: -12px;
@@ -142,7 +155,8 @@
         border-radius: 50%;
 
     }
-    .toggle{
+
+    .toggle {
         display: inline-block;
     }
 </style>

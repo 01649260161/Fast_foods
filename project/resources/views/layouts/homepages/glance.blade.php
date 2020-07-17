@@ -25,7 +25,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <!--sidebar end-->
     <!--main content start-->
-    <section id="main-content">
+    <section id="main-content" style='background-image: url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-05.jpg");background-repeat: no-repeat;background-size:  cover'>
     @yield('content')
     <!-- footer -->
     @include('particals.footer')

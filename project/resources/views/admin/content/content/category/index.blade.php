@@ -15,9 +15,9 @@
                 <tr>
                     <th>#</th>
                     <th>Tên</th>
-                    <th>Slug</th>
-                    <th>Images</th>
-                    <th>Actions</th>
+                    <th>Đường dẫn tĩnh</th>
+                    <th>Ảnh</th>
+                    <th>Hành động</th>
 
                 </tr>
                 </thead>

@@ -10,6 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+Route::get('/customer/{id}/history','Frontend\CustomerController@history');
+Route::get('/customer/{id}/view','Frontend\CustomerController@view');
+
+Route::get('/customer/{id}/edit','Frontend\CustomerController@edit');
+Route::post('/customer/{id}','Frontend\CustomerController@update');
+
+
+
 Route::get('/test',function (){
     return view('admin.layouts.glance');
 });
@@ -100,6 +111,16 @@ Route::get('content/post/{id}','Frontend\ContentPostController@detail');
 Route::get('content/tag/{id}','Frontend\ContentTagController@detail');
 
 
+/*
+ * Frontend route review
+ * */
+
+Route::post('review/{id}','Frontend\ReviewController@create');
+
+
+
+
+
 
 route::prefix('admin')->group(function (){
 
@@ -167,9 +188,8 @@ route::prefix('admin')->group(function (){
     Route::post('shop/order/{id}/delete','Admin\ShopOrderController@destroy');
 
 
-    Route::get('shop/review',function (){
-        return view('admin.content.shop.review.index');
-    });
+    Route::get('shop/review','Admin\ReviewController@index');
+    Route::get('shop/review/{id}/view','Admin\ReviewController@view');
 
     /*
          * ------------Route admin shopping customer------------
@@ -411,10 +431,8 @@ route::prefix('admin')->group(function (){
      * --------------------------------------------------
      * --------------------------------------------------*/
 
-    Route::get('contact',function (){
-        return view('admin.content.contact.index');
-    });
-
+    Route::get('contact','Admin\ContactController@index');
+    Route::post('contact','Admin\ContactController@store');
 
     /*
      * ------------Route admin Email------------

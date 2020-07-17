@@ -16,9 +16,9 @@
                     <th>#</th>
                     <th>Tên</th>
                     <th>Tác Giả</th>
-                    <th>View</th>
-                    <th>Images</th>
-                    <th>Actions</th>
+                    <th>Lượt xem</th>
+                    <th>Ảnh</th>
+                    <th>Hành động</th>
 
                 </tr>
                 </thead>

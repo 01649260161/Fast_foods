@@ -17,8 +17,8 @@
                     <th>#</th>
                     <th>Tên</th>
                     <th>Link</th>
-                    <th>Image</th>
-                    <th>Actions</th>
+                    <th>Ảnh</th>
+                    <th>Hành động</th>
 
                 </tr>
                 </thead>
